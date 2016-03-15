@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuclideanAlgorithm", "EuclideanAlgorithm\EuclideanAlgorithm.csproj", "{24609CB2-262D-429E-B1F1-08AB461AF874}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuclideanAlgorithm.NUnit.Tests", "EuclideanAlgorithm.NUnit.Tests\EuclideanAlgorithm.NUnit.Tests.csproj", "{4E55E9A1-1DEC-4FF3-BBC2-0C1A57B74F7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionForInt", "ExtensionForInt\ExtensionForInt.csproj", "{7E305AB8-16E8-4960-B6B2-A528D3C6E08D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionForInt.NUnit.Tests", "ExtensionForInt.NUnit.Tests\ExtensionForInt.NUnit.Tests.csproj", "{E1100170-F7C4-45A3-B1D2-97E00BA12A3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerFormatter", "CustomerFormatter\CustomerFormatter.csproj", "{07892EE5-2ABC-4915-A883-65D38B28357C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerFormatter.Nunit.Tests", "CustomerFormatter.Nunit.Tests\CustomerFormatter.Nunit.Tests.csproj", "{28C0AC44-38FB-4BC2-8AF4-A8544BB0CC82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24609CB2-262D-429E-B1F1-08AB461AF874}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24609CB2-262D-429E-B1F1-08AB461AF874}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24609CB2-262D-429E-B1F1-08AB461AF874}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24609CB2-262D-429E-B1F1-08AB461AF874}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E55E9A1-1DEC-4FF3-BBC2-0C1A57B74F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E55E9A1-1DEC-4FF3-BBC2-0C1A57B74F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E55E9A1-1DEC-4FF3-BBC2-0C1A57B74F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E55E9A1-1DEC-4FF3-BBC2-0C1A57B74F7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E305AB8-16E8-4960-B6B2-A528D3C6E08D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E305AB8-16E8-4960-B6B2-A528D3C6E08D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E305AB8-16E8-4960-B6B2-A528D3C6E08D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E305AB8-16E8-4960-B6B2-A528D3C6E08D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1100170-F7C4-45A3-B1D2-97E00BA12A3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1100170-F7C4-45A3-B1D2-97E00BA12A3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1100170-F7C4-45A3-B1D2-97E00BA12A3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1100170-F7C4-45A3-B1D2-97E00BA12A3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07892EE5-2ABC-4915-A883-65D38B28357C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07892EE5-2ABC-4915-A883-65D38B28357C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07892EE5-2ABC-4915-A883-65D38B28357C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07892EE5-2ABC-4915-A883-65D38B28357C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28C0AC44-38FB-4BC2-8AF4-A8544BB0CC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28C0AC44-38FB-4BC2-8AF4-A8544BB0CC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28C0AC44-38FB-4BC2-8AF4-A8544BB0CC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28C0AC44-38FB-4BC2-8AF4-A8544BB0CC82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
