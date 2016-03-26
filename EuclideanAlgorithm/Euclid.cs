@@ -1,75 +1,50 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using static System.Math;
 
 namespace EuclideanAlgorithm
 {
     public static class Euclid
     {
+        private delegate int TwoNumbersDelegate(int a, int b);
+
         #region Public methods to find CGD
-        public static double GCD(int a, int b, out int result)
+        public static double Gcd(int a, int b, out int result)
         {
-            Stopwatch stopwatch = Stopwatch.StartNew();
-            CheckArguments(a, b);
-            result = FindGCD(a, b);
-            return stopwatch.Elapsed.TotalMilliseconds;
+            return TwoNumbers(a, b, out result, FindGcd);
         }
 
-        public static double GCD(int a, int b, int c, out int result)
+        public static double Gcd(int a, int b, int c, out int result)
         {
-            Stopwatch stopwatch = Stopwatch.StartNew();
-            CheckArguments(a, b, c);
-            result = FindGCD(a, b);
-            result = FindGCD(result, c);
-            return stopwatch.Elapsed.TotalMilliseconds;
+            return ThreeNumbers(a, b, c, out result, FindGcd);
         }
 
-        public static double GCD(out int result, params int[] numbers)
+        public static double Gcd(out int result, params int[] numbers)
         {
-            Stopwatch stopwatch = Stopwatch.StartNew();
-            CheckArguments(numbers);
-            result = 0;
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                result = FindGCD(result, numbers[i]);
-            }
-            return stopwatch.Elapsed.TotalMilliseconds;
+            return ManyNumbers(FindGcd, out result, numbers);
         }
         #endregion
 
         #region Public methods to binary find CGD
-        public static double GCDBin(int a, int b, out int result)
+        public static double GcdBin(int a, int b, out int result)
         {
-            Stopwatch stopwatch = Stopwatch.StartNew();
-            CheckArguments(a, b);
-            result = FindBinGCD(a, b);
-            return stopwatch.Elapsed.TotalMilliseconds;
+            return TwoNumbers(a, b, out result, FindBinGcd);
         }
 
-        public static double GCDBin(int a, int b, int c, out int result)
+        public static double GcdBin(int a, int b, int c, out int result)
         {
-            Stopwatch stopwatch = Stopwatch.StartNew();
-            CheckArguments(a, b, c);
-            result = FindBinGCD(a, b);
-            result = FindBinGCD(result, c);
-            return stopwatch.Elapsed.TotalMilliseconds;
+            return ThreeNumbers(a, b, c, out result, FindBinGcd);
         }
 
-        public static double GCDBin(out int result, params int[] numbers)
+        public static double GcdBin(out int result, params int[] numbers)
         {
-            Stopwatch stopwatch = Stopwatch.StartNew();
-            CheckArguments(numbers);
-            result = 0;
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                result = FindBinGCD(result, numbers[i]);
-            }
-            return stopwatch.Elapsed.TotalMilliseconds;
+            return ManyNumbers(FindBinGcd, out result, numbers);
         }
         #endregion
 
         #region  Euclid and Stein algorithms
-        private static int FindGCD(int a, int b)
+        private static int FindGcd(int a, int b)
         {
             while (b != 0)
             {
@@ -80,7 +55,7 @@ namespace EuclideanAlgorithm
             return Abs(a);
         }
 
-        private static int FindBinGCD(int a, int b)
+        private static int FindBinGcd(int a, int b)
         {
             if (a < 0)
             {
@@ -114,55 +89,60 @@ namespace EuclideanAlgorithm
 
             if (a % 2 == 0 && b % 2 == 0)
             {
-                return 2 * FindBinGCD(a/2, b/2);
+                return 2 * FindBinGcd(a/2, b/2);
             }
 
             if (a % 2 == 0 && b % 2 == 1)
             {
-                return FindBinGCD(a / 2, b );
+                return FindBinGcd(a / 2, b );
             }
 
             if (a % 2 == 1 && b % 2 == 0)
             {
-                return FindBinGCD(a, b / 2);
+                return FindBinGcd(a, b / 2);
             }
 
-            return FindBinGCD(a, Abs(a - b));
+            return FindBinGcd(a, Abs(a - b));
         }
         #endregion
 
-        #region Checkers
-        private static void CheckArguments(int a, int b)
+        #region Private methods to find GCD
+        private static double TwoNumbers(int a, int b, out int result, TwoNumbersDelegate twoNumbersGcd)
         {
+            Stopwatch stopwatch = Stopwatch.StartNew();
             if (a == 0 && b == 0)
             {
                 throw new ArgumentException("Though one of the numbers shouldn't be zero!");
             }
+            result = twoNumbersGcd(a, b);
+            return stopwatch.Elapsed.TotalMilliseconds;
         }
 
-        private static void CheckArguments(int a, int b, int c)
+        private static double ThreeNumbers(int a, int b, int c, out int result, TwoNumbersDelegate twoNumbersGcd)
         {
-            if (a == 0 && b == 0 && c==0)
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            if (a == 0 && b == 0 && c == 0)
             {
                 throw new ArgumentException("Though one of the numbers shouldn't be zero!");
             }
+
+            result = twoNumbersGcd(a, b);
+            result = twoNumbersGcd(result, c);
+            return stopwatch.Elapsed.TotalMilliseconds;
         }
 
-        private static void CheckArguments(params int[] numbers)
+        private static double ManyNumbers(TwoNumbersDelegate twoNumbers, out int result, params int[] numbers)
         {
-            bool allZero = true;
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                if (numbers[i] !=0)
-                {
-                    allZero = false;
-                    break;
-                }
-            }
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            bool allZero = numbers.All(number => number == 0);
             if (allZero)
             {
                 throw new ArgumentException("Though one of the numbers shouldn't be zero!");
             }
+
+            result = numbers.Aggregate(0, (current, t) => twoNumbers(current, t));
+
+            return stopwatch.Elapsed.TotalMilliseconds;
         }
         #endregion
     }

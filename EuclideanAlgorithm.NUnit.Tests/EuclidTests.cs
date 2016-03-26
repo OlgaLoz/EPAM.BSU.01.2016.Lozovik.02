@@ -22,7 +22,7 @@ namespace EuclideanAlgorithm.NUnit.Tests
         public int GCD_TwoNumbers(int a, int b)
         {
             int result;
-            Debug.WriteLine(GCD(a, b, out result));
+            Debug.WriteLine(Gcd(a, b, out result));
             return result;
         }
 
@@ -40,7 +40,7 @@ namespace EuclideanAlgorithm.NUnit.Tests
         public int GCD_ThreeNumbers(int a, int b, int c)
         {
             int result;
-            Debug.WriteLine(GCD(a, b, c, out result));
+            Debug.WriteLine(Gcd(a, b, c, out result));
             return result;
         }
 
@@ -55,7 +55,7 @@ namespace EuclideanAlgorithm.NUnit.Tests
         public int GCD_ManyNumbers(params int[] numbers)
         {
             int result;
-            Debug.WriteLine(GCD(out result, numbers));
+            Debug.WriteLine(Gcd(out result, numbers));
             return result;
         }
 
@@ -72,7 +72,7 @@ namespace EuclideanAlgorithm.NUnit.Tests
         public int GCDBin_TwoNumbers(int a, int b)
         {
             int result;
-            Debug.WriteLine(GCDBin(a, b, out result));
+            Debug.WriteLine(GcdBin(a, b, out result));
             return result;
         }
 
@@ -90,7 +90,7 @@ namespace EuclideanAlgorithm.NUnit.Tests
         public int GCDBin_ThreeNumbers(int a, int b, int c)
         {
             int result;
-            Debug.WriteLine(GCDBin(a, b, c, out result));
+            Debug.WriteLine(GcdBin(a, b, c, out result));
             return result;
         }
 
@@ -105,7 +105,7 @@ namespace EuclideanAlgorithm.NUnit.Tests
         public int GCDBin_ManyNumbers(params int[] numbers)
         {
             int result;
-            Debug.WriteLine(GCDBin(out result, numbers));
+            Debug.WriteLine(GcdBin(out result, numbers));
             return result;
         }
     }
